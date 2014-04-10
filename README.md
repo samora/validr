@@ -65,6 +65,10 @@ app.post('/user', function (req, res){
   // Process req.body however you want. Example save to db.
 });
 
+
+app.listen(3000);
+```
+
 ### Validation errors
 
 You can get errors in two ways. Similar to [express-validator](https://github.com/ctavan/express-validator#validation-errors).
@@ -99,9 +103,6 @@ mappedErrors:
 }
 ```
 
-
-app.listen(3000);
-```
 
 ## Tests
 
