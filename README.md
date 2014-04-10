@@ -1,6 +1,8 @@
 # Validr
 
-Validations without ties to any framework. Inspired by validator, express-validator and validictorian.
+[![Build Status](https://travis-ci.org/samora/validr.svg)](https://travis-ci.org/samora/validr)
+
+Validations without ties to any framework. Inspired by [validator](https://github.com/chriso/validator.js), [express-validator](https://github.com/ctavan/express-validator) and [validictorian](https://github.com/samora/validictorian).
 
 ## Installation
 
@@ -32,13 +34,9 @@ app.post('/user', function (req, res){
   //     first: <first name>,
   //     last: <last name>
   //   },
-  // 
   //   email: <email>,
-  // 
   //   age: <age>,
-  //
   //   sex: <sex>,
-  //
   //   occupation: <occupation>
   // }
 
@@ -62,12 +60,24 @@ app.post('/user', function (req, res){
   if (errors) return res.json(errors);
 
   // ...
-  // Process req.body however you want. Example save to db.
+  // Process req.body however you want. Example: save to db.
 });
 
 
 app.listen(3000);
 ```
+
+### Validate
+
+Validating fields is similar to [express-validator](https://github.com/ctavan/express-validator)'s `assert`.
+
+Differences between `validate` and `assert`.
+* No `notEmpty` and `len` methods. Use `isLength`.
+* Nested fields are targeted with a dot-notation string or array. Example: `'name.first'` or `['name', 'first']`.
+
+#### target
+
+
 
 ### Validation errors
 
