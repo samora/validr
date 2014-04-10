@@ -75,9 +75,6 @@ Differences between `validate` and `assert`.
 * No `notEmpty` and `len` methods. Use `isLength`.
 * Nested fields are targeted with a dot-notation string or array. Example: `'name.first'` or `['name', 'first']`.
 
-#### target
-
-
 
 ### Validation errors
 
