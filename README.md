@@ -41,18 +41,38 @@ app.post('/user', function (req, res){
   // }
 
   // 1. Create an instance of Validr.
+
   var validr = new Validr(req.body);
 
+
   // 2. Validations
-  validr.validate('name.first', 'First Name is required.').isLength(1); // use string with dot-notation to validate nested fields
-  validr.validate(['name', 'last'], 'Last Name is required.').isLength(1); // you can also use an array to validate nested fields
-  validr.validate('email', {
-    isLength: 'Email is required.',
-    isEmail: 'Email must be valid.'
-  }).isLength(1).isEmail(); // an object can be used to set separate validation messages for validators.
-  validr.validate('age', 'Age must be a number.').isNumeric();
-  validr.validate('sex', 'Sex must be M (male) or F (female).')
-    .isIn(['M', 'F']).isLength(1); // validators are chainable
+
+  validr
+    // use string with dot-notation to validate nested fields
+    .validate('name.first', 'First Name is required.')
+    .isLength(1);
+
+  validr
+    // you can also use an array to validate nested fields
+    .validate(['name', 'last'], 'Last Name is required.')
+    .isLength(1);
+
+  validr
+    // an object can be used to set separate validation messages for validators.
+    .validate('email', {
+      isLength: 'Email is required.',
+      isEmail: 'Email must be valid.'
+    })
+    // validators are chainable
+    .isLength(1).isEmail(); 
+
+  validr
+    .validate('age', 'Age must be a number.')
+    .isNumeric();
+
+  validr
+    .validate('sex', 'Sex must be M (male) or F (female).')
+    .isIn(['M', 'F']).isLength(1);
 
   // 3. Check for errors.
   var errors = validr.validationErrors();
