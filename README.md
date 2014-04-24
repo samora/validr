@@ -40,6 +40,7 @@ app.post('/user', function (req, res){
   //   occupation: <occupation>
   // }
 
+
   // 1. Create an instance of Validr.
 
   var validr = new Validr(req.body);
@@ -74,10 +75,14 @@ app.post('/user', function (req, res){
     .validate('sex', 'Sex must be M (male) or F (female).')
     .isIn(['M', 'F']).isLength(1);
 
+
   // 3. Check for errors.
+
   var errors = validr.validationErrors();
 
   if (errors) return res.json(errors);
+
+
 
   // ...
   // Process req.body however you want. Example: save to db.
