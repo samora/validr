@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/samora/validr.svg)](https://travis-ci.org/samora/validr)
 
-Validations without ties to any framework. Inspired by [validator](https://github.com/chriso/validator.js), [express-validator](https://github.com/ctavan/express-validator) and [validictorian](https://github.com/samora/validictorian).
+Framework agnostic [Node.js](http://nodejs.org) validations.
+Inspired by [validator](https://github.com/chriso/validator.js), [express-validator](https://github.com/ctavan/express-validator) and [validictorian](https://github.com/samora/validictorian).
 
 ## Installation
 
