@@ -47,6 +47,18 @@ describe('validr', function () {
       validr._errors[1].msg.should.equal('Age is required.');
     });
 
+    it('should skip validation if object property isnt found', function () {
+      var body = _.cloneDeep(user);
+
+      var validr = new Validr(body)
+
+      validr.validate('sex', 'Sex must be M or F')
+        .isIn(['M', 'F'])
+
+      var errors = validr.validationErrors();
+      (!errors).should.be.ok;
+    })
+
     it('should have chainable validators', function() {
       var body = _.cloneDeep(user);
       body.email = '';
