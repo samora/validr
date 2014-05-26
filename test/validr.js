@@ -59,6 +59,21 @@ describe('validr', function () {
       (!errors).should.be.ok;
     })
 
+    it('should validate if object property isnt found and isLength validator is set',
+      function () {
+        var body = _.cloneDeep(user)
+
+        var validr = new Validr(body)
+
+        validr.validate('sex', 'Sex must be M or F.')
+          .isIn(['M', 'F'])
+          .isLength(1)
+
+        var errors = validr.validationErrors(true)
+        errors.should.be.ok
+        errors.sex.should.have.property('msg', 'Sex must be M or F.')
+      })
+
     it('should have chainable validators', function() {
       var body = _.cloneDeep(user);
       body.email = '';
