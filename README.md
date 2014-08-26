@@ -5,7 +5,7 @@
 Framework agnostic [Node.js](http://nodejs.org) validations.
 Inspired by [validator](https://github.com/chriso/validator.js), [express-validator](https://github.com/ctavan/express-validator) and [validictorian](https://github.com/samora/validictorian).
 
-Thanks to [@mocheng](https://github.com/mocheng), Validr now supports extending with your own validators, just like [validator](https://github.com/chriso/validator.js#extensions).
+Thanks to [@mocheng](https://github.com/mocheng), Validr now supports extending with custom validators, just like [validator](https://github.com/chriso/validator.js#extensions).
 
 ## Installation
 
