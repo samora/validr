@@ -1,6 +1,6 @@
 {
   "name": "validr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validations without ties to any framework. Inspired by validator, express-validator and validictorian.",
   "main": "index.js",
   "scripts": {
