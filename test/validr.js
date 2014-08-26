@@ -134,4 +134,30 @@ describe('validr', function () {
       });
     });
   });
+
+  describe('#extendValidator ', function() {
+
+    it('should be able to extend validator', function (){
+      var body = _.cloneDeep(user);
+      var validr = new Validr(body, {
+        isNotExampleEmail: function(str) {
+          return !/@example.com/.test(str);
+        }
+      });
+
+      validr.validate('email', {
+        isLength: 'Email is required.',
+        isEmail: 'Email must be valid.',
+        isNotExampleEmail: 'Email must NOT be @example.com.'
+      }).isLength(1).isEmail().isNotExampleEmail();
+
+      var errors = validr.validationErrors(true);
+      errors.email.should.have.properties({
+        param: 'email',
+        value: 'samora@example.com',
+        msg: 'Email must NOT be @example.com.'
+      });
+    });
+
+  });
 });
