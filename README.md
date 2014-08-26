@@ -138,9 +138,9 @@ mappedErrors:
 }
 ```
 
-### Extending Valir with custom validators
+### Extending with custom validators
 
-Extend Validr by adding custom validator functions to an object which is the second parameter when creating a Validr instance.
+Add custom validator functions to an object which is the second parameter when instantiating Validr.
 
 ```javascript
 var validr = new Validr(body, {
