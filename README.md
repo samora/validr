@@ -5,6 +5,8 @@
 Framework agnostic [Node.js](http://nodejs.org) validations.
 Inspired by [validator](https://github.com/chriso/validator.js), [express-validator](https://github.com/ctavan/express-validator) and [validictorian](https://github.com/samora/validictorian).
 
+Thanks to [@mocheng](https://github.com/mocheng), Validr now supports extending with your own validators, just like [validator](https://github.com/chriso/validator.js#extensions).
+
 ## Installation
 
 ```
@@ -136,6 +138,23 @@ mappedErrors:
 }
 ```
 
+### Extending Valir with custom validators
+
+Extend Validr by adding custom validator functions to an object which is the second parameter when creating a Validr instance.
+
+```javascript
+var validr = new Validr(body, {
+  isNotExampleEmail: function(str) {
+    return !/@example.com/.test(str);
+  }
+});
+
+validr.validate('email', {
+  isLength: 'Email is required.',
+  isEmail: 'Email must be valid',
+  isNotExampleEmail: 'Email must NOT be @example.com.'
+  }).isLength(1).isEmail().isNotExampleEmail();
+```
 
 ## Tests
 
