@@ -137,13 +137,15 @@ describe('validr', function () {
 
   describe('#extendValidator ', function() {
 
-    it('should be able to extend validator', function (){
+    var extendValidator = {
+      isNotExampleEmail: function(str) {
+        return !/@example.com/.test(str);
+      }
+    };
+
+    it('should find errors', function (){
       var body = _.cloneDeep(user);
-      var validr = new Validr(body, {
-        isNotExampleEmail: function(str) {
-          return !/@example.com/.test(str);
-        }
-      });
+      var validr = new Validr(body, extendValidator);
 
       validr.validate('email', {
         isLength: 'Email is required.',
@@ -157,6 +159,22 @@ describe('validr', function () {
         value: 'samora@example.com',
         msg: 'Email must NOT be @example.com.'
       });
+    });
+
+    it('should return null', function (){
+      var body = _.cloneDeep(user);
+      var validr = new Validr(body, extendValidator);
+
+      body.email = 'foo@bar.com';
+
+      validr.validate('email', {
+        isLength: 'Email is required.',
+        isEmail: 'Email must be valid.',
+        isNotExampleEmail: 'Email must NOT be @example.com.'
+      }).isLength(1).isEmail().isNotExampleEmail();
+
+      var errors = validr.validationErrors(true);
+      (!errors).should.be.ok;
     });
 
   });
