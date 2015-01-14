@@ -165,8 +165,6 @@ describe('validr', function () {
       var errors = validr.validationErrors(true);
       (!errors).should.be.ok;
     });
-
-
   });
 
   describe('#extendValidator ', function() {
