@@ -71,7 +71,7 @@ app.post('/user', function (req, res){
 
   validr
     // validate method accepts a 3rd parameter which is an options object
-     // age will not be validated if '', `null` or undefined
+    // age will not be validated if '', `null` or undefined
     .validate('age', 'Age must be a number.', {ignoreEmpty: true})
     .isNumeric();
 
