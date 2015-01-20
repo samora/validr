@@ -134,6 +134,28 @@ describe('validr', function () {
       });
     });
 
+    it('should return errors if ignoreEmpty but not empty', function (){
+      var body = _.cloneDeep(user);
+      body.email = 'invalid.com';
+      var validr = new Validr(body);
+
+
+      validr.validate('email', {
+        isLength: 'Email is required.',
+        isEmail: 'Email must be valid.'
+      }, {
+        ignoreEmpty: true
+      }).isLength(1).isEmail();
+
+      var errors = validr.validationErrors(true);
+      errors.email.should.have.properties({
+        param: 'email',
+        value: 'invalid.com',
+        msg: 'Email must be valid.'
+      });
+
+    });
+
     it('should return null if ignoreEmpty', function (){
       var body = _.cloneDeep(user);
       body.email = '';
