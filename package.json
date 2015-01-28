@@ -1,6 +1,6 @@
 {
   "name": "validr",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Validations without ties to any framework. Inspired by validator, express-validator and validictorian.",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/samora/validr",
   "dependencies": {
     "lodash": "^2.4.1",
-    "validator": "^3.27.0"
+    "validator": "^3.28.0"
   },
   "devDependencies": {
     "should": "^4.6.0"
