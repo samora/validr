@@ -143,7 +143,7 @@ mappedErrors:
 
 ### Extending with custom validators
 
-Add custom validator functions to an object which is the second parameter when instantiating Validr.
+Add custom validator functions to an object, which is the second parameter when instantiating Validr.
 ```javascript
 var validr = new Validr(body, {
   isNotExampleEmail: function(str) {
