@@ -171,7 +171,7 @@ npm test
 
 ## Contributors
 
-* Samora Dake - [@papasamo247](https://twitter.com/papasamo247)
+* Samora Dake - [@samoradake](https://twitter.com/samoradake)
 * Morgan Cheng - [@morgancheng](https://twitter.com/morgancheng)
 
 ## License
